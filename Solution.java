@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class StreamlinedSolution {
+public class Solution {
 
 	public static int pairs(int targetValue, int[] inputArray) {
 
