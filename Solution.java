@@ -1,8 +1,3 @@
-import java.util.Arrays;
-import java.util.Scanner;
-
-public class Solution {
-
 	public static int pairs(int targetValue, int[] inputArray) {
 
 		Arrays.sort(inputArray);
@@ -11,38 +6,18 @@ public class Solution {
 
 		while (index < inputArray.length) {
 
-			int lastIndexOfSameInteger = index + 1;
-			int totalOfSameInteger = 1;
+			int indexOfPotentialPair = index + 1;
 
-			/**
-			 * Counters each occurrence the first integer with which a potential pair could
-			 * be formed.
-			 */
-			while (lastIndexOfSameInteger < inputArray.length
-					&& inputArray[lastIndexOfSameInteger] - inputArray[index] == 0) {
-				lastIndexOfSameInteger++;
-				totalOfSameInteger++;
+			while (indexOfPotentialPair < inputArray.length
+					&& inputArray[indexOfPotentialPair] - inputArray[index] < targetValue) {
+				indexOfPotentialPair++;
 			}
 
-			index = lastIndexOfSameInteger - 1;
-
-			/**
-			 * Searches for a second integer with which a pair could be formed.
-			 */
-			while (lastIndexOfSameInteger < inputArray.length
-					&& inputArray[lastIndexOfSameInteger] - inputArray[index] < targetValue) {
-				lastIndexOfSameInteger++;
+			if (indexOfPotentialPair < inputArray.length
+					&& inputArray[indexOfPotentialPair] - inputArray[index] == targetValue) {
+				totalPairs++;
 			}
 
-			/**
-			 * If there is a pair, counters each occurrence the second integer and thus
-			 * calculates the corresponding number of pairs.
-			 */
-			while (lastIndexOfSameInteger < inputArray.length
-					&& inputArray[lastIndexOfSameInteger] - inputArray[index] == targetValue) {
-				lastIndexOfSameInteger++;
-				totalPairs += totalOfSameInteger;
-			}
 			index++;
 		}
 		return totalPairs;
@@ -63,4 +38,3 @@ public class Solution {
 		int result = pairs(targetValue, inputArray);
 		System.out.println(result);
 	}
-}
