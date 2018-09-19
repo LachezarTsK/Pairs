@@ -1,3 +1,8 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class StreamlinedSolution {
+
 	public static int pairs(int targetValue, int[] inputArray) {
 
 		Arrays.sort(inputArray);
@@ -38,3 +43,4 @@
 		int result = pairs(targetValue, inputArray);
 		System.out.println(result);
 	}
+}
