@@ -1,7 +1,11 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Solution {
+/**
+ * Solves the problem as per the original conditions of the HackerRank
+ * challenge, where only unique integers are allowed as an input.
+ */
+public class SolutionIntegersWithUniqueOccurrence {
 
 	public static int pairs(int targetValue, int[] inputArray) {
 
