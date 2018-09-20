@@ -6,24 +6,24 @@ public class Solution {
 	public static int pairs(int targetValue, int[] inputArray) {
 
 		Arrays.sort(inputArray);
-		int index = 0;
+		int indexOfSmallerInteger = 0;
+		int indexOfLargerInteger = indexOfSmallerInteger + 1;
 		int totalPairs = 0;
 
-		while (index < inputArray.length) {
+		while (indexOfLargerInteger < inputArray.length) {
 
-			int indexOfPotentialPair = index + 1;
-
-			while (indexOfPotentialPair < inputArray.length
-					&& inputArray[indexOfPotentialPair] - inputArray[index] < targetValue) {
-				indexOfPotentialPair++;
+			while (indexOfLargerInteger < inputArray.length
+					&& inputArray[indexOfLargerInteger] - inputArray[indexOfSmallerInteger] < targetValue) {
+				indexOfLargerInteger++;
 			}
 
-			if (indexOfPotentialPair < inputArray.length
-					&& inputArray[indexOfPotentialPair] - inputArray[index] == targetValue) {
+			if (indexOfLargerInteger < inputArray.length
+					&& inputArray[indexOfLargerInteger] - inputArray[indexOfSmallerInteger] == targetValue) {
 				totalPairs++;
+				indexOfLargerInteger++;
 			}
 
-			index++;
+			indexOfSmallerInteger++;
 		}
 		return totalPairs;
 	}
