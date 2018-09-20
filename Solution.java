@@ -7,7 +7,7 @@ public class Solution {
 
 		Arrays.sort(inputArray);
 		int indexOfSmallerInteger = 0;
-		int indexOfLargerInteger = indexOfSmallerInteger + 1;
+		int indexOfLargerInteger = 1;
 		int totalPairs = 0;
 
 		while (indexOfLargerInteger < inputArray.length) {
